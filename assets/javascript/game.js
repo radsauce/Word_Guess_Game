@@ -1,15 +1,15 @@
 let score = 0
 let currentWord = ""
 let currentGuesses = []
-let guessedLetters = []
+let wrongLetters = []
 let guessesLeft = 10
 
-const wordList = ['Wolverine', 'Cyclops', 'Jean Grey', 'Psylocke', 'Angel', 'Archangel', 'Storm', 'Beast', 'Gambit', 'Nightcrawler', 'Dazzler', 'Colossus', 'Shadowcat', 'Iceman', 'Jubilee', 'Professor X', 'Rogue', 'Morph']
+const wordList = ['WOLVERINE', 'CYCLOPS', 'JEAN GREY', 'PSYLOCKE', 'ANGEL', 'ARCHANGEL', 'STORM', 'BEAST', 'GAMBIT', 'NIGHTCRAWLER', 'DAZZLER', 'COLOSSUS', 'SHADOWCAT', 'ICEMAN', 'JUBILEE', 'PROFESSOR X', 'ROGUE', 'MORPH']
 
 function restartRound() {
   currentWord = randWord(wordList)
-  guessesleft = 10;
-  guessedLetters = [];
+  guessesLeft = 10;
+  wrongLetters = [];
 }
 
 function displayValues() {
@@ -22,29 +22,13 @@ function displayValues() {
   hiddenWord.innerHTML = hiddenWord()
   wrongLetters.innerHTML = wrongLetters.join()
   guessesLeft.innerHTML = guessesLeft
-  return displayValues()
 }
+
 
 function randWord(arr) {
   return arr[Math.floor(Math.rand) * wordList.length]
 }
 
-document.onkeyup = function(event) {
-  let letter = event.key.toUpperCase()
-  currentGuesses.push(letter)
-  if(guessesLeft <= 0) {
-    restartRound()
-  }
-  if(hiddenWord() = currentWord) {
-    score++
-    restartRound()
-    return score
-  }
-  displayValues()
-  }
-
-
-}
 document.addEventListener("keypress", function(event) {
   let letter = event.key.toUpperCase();
   currentGuesses.push(letter);
